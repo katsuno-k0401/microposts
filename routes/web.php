@@ -20,7 +20,7 @@ use App\Http\Controllers\UserFollowController;  // 追記
 
 Route::get('/', [MicropostsController::class, 'index']);
 
-Route::get('/dashboard', [MicropostsController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [MicropostsController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::resource('users', UsersController::class, ['only' => ['index', 'show']]);
